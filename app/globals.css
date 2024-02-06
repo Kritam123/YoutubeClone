@@ -2,26 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+  display: none; /* width of the entire scrollbar */
+}
+.sidebar:hover::-webkit-scrollbar {
+  display: block;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: gray; /* color of the scroll thumb */
+  /* border-radius: 5px; roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
+}
+
+.video-control-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  width: 100%;
+  aspect-ratio: 6/1;
+  z-index: -1;
+  border-radius: 10px;
+  pointer-events: none;
+}
+.threater {
+  width: 100% !important;
+  max-width: initial;
+  max-height: 70%;
+  background: #000;
+  margin-left: 0;
+}
+.threater .video {
+  width: 80%;
+  border-radius: 0;
+}
+
+.fullScreen {
+  width: 100% !important;
+  max-width: initial;
+  position: fixed;
+  min-height: 100vh;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  background: #000;
+  margin-left: 0;
+}
+.fullScreen .video {
+  width: 100%;
+  border-radius: 0 !important;
+  height: 100%;
+  overflow: hidden;
+}
+.volume-range {
+  transition: width 150ms ease-in-out;
+  cursor: pointer;
+}
+.volume-range:hover {
+  width: 100%;
+  display: block;
+}
+.volume-range:focus-within {
+  width: 100%;
+  display: block;
+}
+
+.volume-container:hover ~ .volume-range {
+  width: 100%;
+  display: block;
+}
+.timeline-Container:hover .timeline {
+  height: 100%;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--preview-position) * 100%);
+  background-color: rgba(150, 150, 150);
+  display: none;
+}
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: calc(100% - var(--progress-position) * 100%);
+  background-color: rgb(255, 0, 0);
+}
+.thumb-indicator {
+  --scale: 0;
+  position: absolute;
+  transform: translateX(-50%) scale(var(--scale));
+  height: 200%;
+  top: -50%;
+  left: calc(var(--progress-position) * 100%);
+  border-radius: 50%;
+  background-color: red;
+  transition: transform 100ms ease-in-out;
+  aspect-ratio: 1/1;
+}
+.timeline-Container:hover .thumb-indicator,
+.timeline:hover .thumb-indicator {
+  --scale: 1;
+}
+.timeline-Container:hover .timeline::before {
+  display: block;
 }
