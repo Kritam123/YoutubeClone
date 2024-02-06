@@ -76,7 +76,7 @@ const ChannelNavBar = ({ channel, user }: any) => {
       <ul className="flex gap-5">
         {channel?.userId === user?.id
           ? navlinksUser.map((nav) => (
-            <li className="flex items-center">
+            <li key={nav.name} className="flex items-center">
               <Link
 
                 href={nav.href}
@@ -91,7 +91,7 @@ const ChannelNavBar = ({ channel, user }: any) => {
             </li>
           ))
           : navlinks.map((nav) => (
-            <li className="flex items-center">
+            <li key={nav.name} className="flex items-center">
               <Link
                 href={nav.href}
                 className={cn(

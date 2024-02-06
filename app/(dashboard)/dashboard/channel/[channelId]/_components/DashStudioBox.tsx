@@ -12,7 +12,7 @@ const DashStudioBox = () => {
           className="flex justify-between group items-center hover:text-blue-700  "
         >
           <span className="text-[13px]">
-            Upload and set video’s monetization status in YouTube Studio mobile
+            Upload and set video&apos;s monetization status in YouTube Studio mobile
           </span>
           <CiShare1 className="text-2xl hidden group-hover:block" />
         </Link>

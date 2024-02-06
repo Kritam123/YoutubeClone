@@ -255,7 +255,7 @@ const VideoDetails = ({
                   align="start"
                 >
                   <div className="px-3 flex flex-col justify-center py-2">
-                    <h1 className="mb-5 ">Don't like this video?</h1>
+                    <h1 className="mb-5">Don&apos;t like this video?</h1>
                     <p className="text-sm text-gray-500 mb-3">
                       Sign in to count your opinion.
                     </p>

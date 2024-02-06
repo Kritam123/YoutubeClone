@@ -101,7 +101,7 @@ const VideoContainer = ({ videoUrl, isPending }: any) => {
     return () => {
       document.removeEventListener("keydown", videoPlay);
     };
-  }, []);
+  }, [videoPlay]);
   const handleVolumeChange = (e: any) => {
     if (videoRef.current) {
       e.preventDefault();
@@ -188,7 +188,7 @@ const VideoContainer = ({ videoUrl, isPending }: any) => {
       videoRef.current?.removeEventListener("timeupdate", handleCurrentTime);
       videoRef.current?.removeEventListener("click", changePlayblackSpeed);
     };
-  }, [videoRef.current, playBackRef.current]);
+  }, [handleCurrentTime,handleTotalDuration]);
   // timelineSection
   let isScrubbing = false;
   const toggleScrubbing = (e: MouseEvent) => {
@@ -251,7 +251,7 @@ const VideoContainer = ({ videoUrl, isPending }: any) => {
         timeLineUpdate
       );
     };
-  }, [timelineContainerRef.current]);
+  }, [isScrubbing,toggleScrubbing]);
 
   if (isPending) {
     return (
@@ -279,7 +279,7 @@ const VideoContainer = ({ videoUrl, isPending }: any) => {
             className="h-[7px] mx-[0.5rem] timeline-Container flex items-center cursor-pointer"
           >
             <div className="bg-[#333333] h-[3px] timeline relative w-full">
-              <img src="" alt="" />
+              
               <div className="thumb-indicator"></div>
             </div>
           </div>

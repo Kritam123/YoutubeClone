@@ -99,7 +99,7 @@ const ChannelCardItem = ({ item, smallVideo,videos }: any) => {
         videoRef.current.removeEventListener("loadeddata", handleTotalDuration);
       videoRef.current?.removeEventListener("timeupdate", handleCurrentTime);
     };
-  }, []);
+  }, [handleCurrentTime,handleTotalDuration]);
   let isScrubbing = false;
   const toggleScrubbing = (e: MouseEvent) => {
     e.preventDefault();
@@ -157,7 +157,7 @@ const ChannelCardItem = ({ item, smallVideo,videos }: any) => {
         timeLineUpdate
       );
     };
-  }, [timelineContainerRef.current]);
+  }, [isScrubbing,toggleScrubbing]);
   return (
     <Card
       onMouseEnter={handleEnter}
@@ -186,7 +186,7 @@ const ChannelCardItem = ({ item, smallVideo,videos }: any) => {
               className="h-[7px] timeline-Container  flex items-center cursor-pointer"
             >
               <div className="bg-[#333333] h-[3px] timeline relative w-full">
-                <img src="" alt="" />
+               
                 <div className="thumb-indicator"></div>
               </div>
             </div>

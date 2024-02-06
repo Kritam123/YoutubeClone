@@ -72,7 +72,7 @@ const CommentInput = ({
         });
       }
     };
-  }, []);
+  }, [inputRef.current]);
   const onClickEmoji = (e: EmojiClickData) => {
     setComment(comment + e.emoji);
   };

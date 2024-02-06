@@ -67,7 +67,7 @@ const SideBarLinks = ({ channel }: ChannelProps) => {
   return (
     <div className="mt-2 h-[24rem] pr-1 overflow-auto sidebar w-full">
       {linksItem.map((nav) => (
-        <LinkItem icon={nav.icon} href={nav.href} name={nav.name} />
+        <LinkItem key={nav.name} icon={nav.icon} href={nav.href} name={nav.name} />
       ))}
     </div>
   );

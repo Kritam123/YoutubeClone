@@ -49,10 +49,10 @@ const DialogUploadBox = ({ open, setOpen }: { open: boolean, setOpen: (open: boo
             <DialogFooter className=" flex items-center px-16 pt-10  justify-center">
               <p className="text-center text-[12px]">
                 By submitting your videos to YouTube, you acknowledge that you
-                agree to YouTube's{" "}
+                agree to YouTube&apos;s{" "}
                 <span className="text-blue-500">Terms of Service</span> and{" "}
                 <span className="text-blue-500">Community Guidelines </span>.
-                Please be sure not to violate others' copyright or privacy
+                Please be sure not to violate others&apos; copyright or privacy
                 rights. <span className=" text-blue-500">Learn more</span>
               </p>
             </DialogFooter>

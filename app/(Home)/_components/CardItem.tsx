@@ -105,9 +105,9 @@ const CardItem = ({ item }: MovieData) => {
     return () => {
       videoRef.current &&
         videoRef.current.removeEventListener("loadeddata", handleTotalDuration);
-      videoRef.current?.removeEventListener("timeupdate", handleCurrentTime);
+        videoRef.current &&  videoRef.current.removeEventListener("timeupdate", handleCurrentTime);
     };
-  }, []);
+  }, [handleCurrentTime,handleTotalDuration]);
   let isScrubbing = false;
   const toggleScrubbing = (e: MouseEvent) => {
     e.preventDefault();
@@ -156,6 +156,7 @@ const CardItem = ({ item }: MovieData) => {
       if (isScrubbing) toggleScrubbing(e);
     });
     return () => {
+     if(timelineContainerRef.current){
       timelineContainerRef.current?.removeEventListener(
         "mousedown",
         toggleScrubbing
@@ -164,8 +165,9 @@ const CardItem = ({ item }: MovieData) => {
         "mousemove",
         timeLineUpdate
       );
+     }
     };
-  }, [timelineContainerRef.current]);
+  }, [isScrubbing,toggleScrubbing]);
   return (
     <Card
       onMouseEnter={handleEnter}
@@ -202,7 +204,7 @@ const CardItem = ({ item }: MovieData) => {
             className="h-[7px] timeline-Container  flex items-center cursor-pointer"
           >
             <div className="bg-[#333333] h-[3px] timeline relative w-full">
-              <img src="" alt="" />
+             
               <div className="thumb-indicator"></div>
             </div>
           </div>

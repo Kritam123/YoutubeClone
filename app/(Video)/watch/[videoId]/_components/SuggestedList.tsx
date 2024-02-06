@@ -20,7 +20,7 @@ export const SuggestedListSkeleton = ()=>{
   return (
     <div className='flex space-y-2 flex-col'>
       {[0,1,2,3,4].map((_i)=>(
-        <SuggestedVideoBoxSkeleton/>
+        <SuggestedVideoBoxSkeleton key={_i}/>
       ))}
     </div>
   )

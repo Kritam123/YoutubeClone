@@ -75,7 +75,7 @@ const SuggestedVideoBox = ({ item }: any) => {
       videoRef.current &&
         videoRef.current.removeEventListener("loadeddata", handleTotalDuration);
     };
-  }, []);
+  }, [handleTotalDuration]);
   return (
     <>
       <Card

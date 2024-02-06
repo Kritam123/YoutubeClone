@@ -34,7 +34,7 @@ const VideoListContainer = ({ getAllVideos:allVideos, channelId }: any) => {
     }
     useEffect (()=>{
         func();
-    },[sortBy])
+    },[sortBy,func])
     return (
         <>
             <div className='flex gap-2'>

@@ -143,8 +143,8 @@ const VideoInformation = ({
         <div className="mt-5">
           <h1 className="font-bold text-sm">Thumbnail</h1>
           <p className="leading-4 mt-2 text-[13px]">
-            Select or upload a picture that shows what's in your video. A good
-            thumbnail stands out and draws viewers' attention.{" "}
+            Select or upload a picture that shows what&apos;s in your video. A good
+            thumbnail stands out and draws viewers&apos; attention.{" "}
             <span className="text-blue-500">Learn more</span>
           </p>
           {thumbnailUrl ? (

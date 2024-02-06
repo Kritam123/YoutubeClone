@@ -78,7 +78,7 @@ const AllVideosList = ({videos}:any) => {
 
                         {
                             videos?.map((item: any) => (
-                                <ChannelCardItem item={item} smallVideo={true} />
+                                <ChannelCardItem key={item.id} item={item} smallVideo={true} />
                             ))
                         }
                     </Slider>
@@ -86,7 +86,7 @@ const AllVideosList = ({videos}:any) => {
                     <div className='flex gap-1'>
                         {
                             videos?.map((item: any) => (
-                                <ChannelCardItem item={item} smallVideo={true} />
+                                <ChannelCardItem key={item.id} item={item} smallVideo={true} />
                             ))
                         }
                     </div>

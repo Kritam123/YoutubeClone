@@ -64,7 +64,7 @@ const BannerVideoContainer = ({ channel }: any) => {
       videoRef.current &&
         videoRef.current.removeEventListener("loadeddata", handleTotalDuration);
     };
-  }, []);
+  }, [handleTotalDuration]);
   return (
     <>
     <div className="w-[80%]   relative">

@@ -68,7 +68,7 @@ const CommentBox = ({ user, comment}: any) => {
       }
     };
     func();
-  }, [childComments]);
+  }, [childComments,videoId,parentId]);
   const handleDeleteComments = async () => {
     try {
       const res = await deleteComment(parentId);
